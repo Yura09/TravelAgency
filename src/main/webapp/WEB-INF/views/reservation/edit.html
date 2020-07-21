@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<form action="#"
+      th:action="@{/reservations/update/{id}(id=${reservation.id})}"
+      th:object="${room}"
+      method="post">
+    <label for="checkIn">checkIn</label>
+    <input type="text" th:field="*{checkIn}" id="checkIn" placeholder="checkIn">
+    <span th:if="${#fields.hasErrors('checkIn')}" th:errors="*{checkIn}"></span>
+    <br/>
+    <br/>
+    <label for="checkOut">checkOut</label>
+    <input type="text" th:field="*{checkOut}" id="checkOut" placeholder="checkOut">
+    <span th:if="${#fields.hasErrors('checkOut')}" th:errors="*{checkOut}"></span>
+    <br/>
+    <br/>
+    <label for="price">price</label>
+    <input type="text" th:field="*{price}" id="price" placeholder="price">
+    <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+    <br/>
+    <br/>
+    <label for="room.id">roomId</label>
+    <input type="text" th:field="*{room.id}" id="room.id" placeholder="room">
+    <span th:if="${#fields.hasErrors('room.id')}" th:errors="*{room.id}"></span>
+    <br/>
+    <br/>
+    <label for="user.id">userId</label>
+    <input type="text" th:field="*{user.id}" id="user.id" placeholder="user">
+    <span th:if="${#fields.hasErrors('user.id')}" th:errors="*{user.id}"></span>
+    <br/>
+    <br/>
+    <input type="submit" value="Update Reservation">
+</form>
+</html>

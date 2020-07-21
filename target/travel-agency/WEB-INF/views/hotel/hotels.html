@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<h2>Hotels</h2>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>address</th>
+        <th>starRating</th>
+        <th>country</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="hotel : ${hotels}">
+        <td th:text="${hotel.id}"></td>
+        <td th:text="${hotel.name}"></td>
+        <td th:text="${hotel.address}"></td>
+        <td th:text="${hotel.starRating}"></td>
+        <td th:text="${hotel.city.country.name}"></td>
+        <td><a th:href="@{/hotels/get/{id}(id=${hotel.id})}">Show</a></td>
+        <td><a th:href="@{/hotels/update/{id}(id=${hotel.id})}">Edit</a></td>
+        <td><a th:href="@{/hotels/remove/{id}(id=${hotel.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <p><a href="/hotels/create">Add a new Hotel</a></p>
+</div>
+</html>

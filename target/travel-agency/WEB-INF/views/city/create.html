@@ -1,0 +1,25 @@
+<form action="#" th:action="@{/cities/create}" th:object="${city}" method="post"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <br/>
+
+   <!-- <label for="cityCountry.id">Country</label>
+    <div th:each="cityCountry : ${allCountries}">
+        <input name="cityCountry.id" th:field="*{country.id}" type="radio" id="cityCountry.id"
+               th:value="${cityCountry.id}"
+        />
+        <span th:text="${cityCountry.name}">Name</span><br/>
+    </div>
+    <input type="submit" value="Add City">-->
+
+    <label for="country.id">country Id</label>
+    <input type="text" th:field="*{country.id}" id="country.id" placeholder="Country">
+    <span th:if="${#fields.hasErrors('country.id')}" th:errors="*{country.id}"></span>
+    <br/>
+    <br/>
+    <input type="submit" value="Add City">
+</form>
+
+

@@ -1,0 +1,55 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<p><a href="/countries">countries</a></p>
+<p><a href="/cities">cities</a></p>
+<p><a href="/hotels">hotels</a></p>
+<h2>Hotel</h2>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>address</th>
+        <th>starRating</th>
+        <th>country</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${hotel.id}">id</td>
+        <td th:text="${hotel.name}">name</td>
+        <td th:text="${hotel.address}"></td>
+        <td th:text="${hotel.starRating}"></td>
+        <td th:text="${hotel.city.country.name}"></td>
+        <td><a th:href="@{/hotels/update/{id}(id=${hotel.id})}">Edit</a></td>
+        <td><a th:href="@{/hotels/remove/{id}(id=${hotel.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Rooms</h3>
+<table>
+
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>number</th>
+        <th>occupancy</th>
+        <th>roomType</th>
+        <th>Show</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="room : ${hotel.rooms}">
+        <td th:text="${room.id}">id</td>
+        <td th:text="${room.number}">number</td>
+        <td th:text="${room.occupancy}">occupancy</td>
+        <td th:text="${room.roomType.name}">roomType</td>
+        <td><a th:href="@{/rooms/get/{id}(id=${room.id})}">Show</a></td>
+
+    </tbody>
+</table>
+<div>
+    <p><a href="/hotels/create">Add a new Hotel</a></p>
+</div>
+</html>

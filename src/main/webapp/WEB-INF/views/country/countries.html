@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <h2>Countries</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>code</th>
+            <th>Show</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="country : ${countries}">
+            <td th:text="${country.id}"></td>
+            <td th:text="${country.name}"></td>
+            <td th:text="${country.code}"></td>
+            <td><a th:href="@{/countries/get/{id}(id=${country.id})}">Show</a></td>
+            <td><a th:href="@{/countries/update/{id}(id=${country.id})}">Edit</a></td>
+            <td><a th:href="@{/countries/remove/{id}(id=${country.id})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<p><a href="/countries/create">Add a new country</a></p>
+</div>
+</html>

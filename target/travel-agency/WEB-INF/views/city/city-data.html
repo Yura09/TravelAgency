@@ -1,0 +1,52 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<p><a href="/countries">countries</a></p>
+<p><a href="/cities">cities</a></p>
+<p><a href="/hotels">hotels</a></p>
+<h2>City</h2>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>country_name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${city.id}"></td>
+        <td th:text="${city.name}"></td>
+        <td th:text="${city.country.name}"></td>
+        <td><a th:href="@{/cities/update/{id}(id=${city.id})}">Edit</a></td>
+        <td><a th:href="@{/cities/remove/{id}(id=${city.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<table>
+    <h3>Hotels</h3>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>address</th>
+        <th>star_rating</th>
+        <th>country_name</th>
+        <th>Show</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="hotel : ${city.hotels}">
+        <td th:text="${hotel.id}">id</td>
+        <td th:text="${hotel.name}">name</td>
+        <td th:text="${hotel.address}"></td>
+        <td th:text="${hotel.starRating}"></td>
+        <td th:text="${hotel.city.country.name}"></td>
+        <td><a th:href="@{/hotels/get/{id}(id=${hotel.id})}">Show</a></td>
+
+    </tbody>
+</table>
+<div>
+    <p><a href="/cities/create">Add a new City</a></p>
+</div>
+</html>

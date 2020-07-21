@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<h2>Cities</h2>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>country_name</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="city : ${cities}">
+        <td th:text="${city.id}"></td>
+        <td th:text="${city.name}"></td>
+        <td th:text="${city.country.name}"></td>
+        <td><a th:href="@{/cities/get/{id}(id=${city.id})}">Show</a></td>
+        <td><a th:href="@{/cities/update/{id}(id=${city.id})}">Edit</a></td>
+        <td><a th:href="@{/cities/remove/{id}(id=${city.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+<p><a href="/cities/create">Add a new City</a></p>
+</div>
+</html>

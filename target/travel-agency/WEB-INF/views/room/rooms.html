@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<h2>Rooms</h2>
+<table>
+
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>number</th>
+        <th>occupancy</th>
+        <th>roomType</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="room : ${rooms}">
+        <td th:text="${room.id}">id</td>
+        <td th:text="${room.number}">number</td>
+        <td th:text="${room.occupancy}">occupancy</td>
+        <td th:text="${room.roomType.name}">roomType</td>
+        <td><a th:href="@{/rooms/get/{id}(id=${room.id})}">Show</a></td>
+        <td><a th:href="@{/rooms/update/{id}(id=${room.id})}">Edit</a></td>
+        <td><a th:href="@{/rooms/remove/{id}(id=${room.id})}">Delete</a></td>
+
+    </tbody>
+</table>
+<div>
+    <p><a href="/rooms/create">Add a new Room</a></p>
+</div>
+</html>

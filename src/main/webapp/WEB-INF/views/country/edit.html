@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<form action="#"
+      th:action="@{/countries/update/{id}(id=${country.id})}"
+      th:object="${country}"
+      method="post">
+    <label for="id">Id</label>
+    <input type="text" disabled th:field="*{id}" id="id" placeholder="Id">
+    <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <label for="code">Code</label>
+    <input type="text" th:field="*{code}" id="code" placeholder="Code">
+    <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></span>
+    <input type="submit" value="Update Country">
+</form>
+</html>

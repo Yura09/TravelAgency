@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<form action="#"
+      th:action="@{/hotels/update/{id}(id=${hotel.id})}"
+      th:object="${hotel}"
+      method="post">
+    <label for="id">Id</label>
+    <input type="text" disabled th:field="*{id}" id="id" placeholder="Id">
+    <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <label for="starRating">starRating</label>
+    <input type="text" th:field="*{starRating}" id="starRating" placeholder="StarRating">
+    <span th:if="${#fields.hasErrors('starRating')}" th:errors="*{starRating}"></span>
+    <label for="starRating">City</label>
+    <input type="text" th:field="*{city.id}" id="city.id" placeholder="City">
+    <span th:if="${#fields.hasErrors('city.id')}" th:errors="*{city.id}"></span>
+    <input type="submit" value="Update Hotel">
+</form>
+</html>
