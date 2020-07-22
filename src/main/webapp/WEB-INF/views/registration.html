@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+<form action="/registration" method="post">
+    <div><label> First name : <input type="text" name="firstName"/> </label></div>
+    <div><label> Last name : <input type="text" name="lastName"/> </label></div>
+    <div><label> Email : <input type="email" name="email"/> </label></div>
+    <div><label> Role : <input type="text" name="role"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <div><input type="submit" value="Sign In"/></div>
+</form>
+</body>
+</html>

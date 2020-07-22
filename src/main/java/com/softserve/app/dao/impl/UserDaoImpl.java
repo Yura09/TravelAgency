@@ -57,7 +57,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserByEmail(String email) {
-        return (User) sessionFactory.getCurrentSession().createQuery("from com.softserve.app.entity.User where email = :email").setParameter("email", email).list().get(0);
+       // Session session = sessionFactory.getCurrentSession();
+
+        return (User) sessionFactory.getCurrentSession().createQuery("from com.softserve.app.entity.User where email = :email").setParameter("email", email).list().stream().findFirst().orElse(null);
 
     }
 }

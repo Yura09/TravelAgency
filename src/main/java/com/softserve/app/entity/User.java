@@ -31,12 +31,12 @@ public class User implements UserDetails {
     @Column(name = "first_name")
     @NotNull
     @Pattern(regexp = "[A-Z][a-zA-Z]*", message = "Use letters only please")
-    @Min(3)
+
     private String firstName;
     @Column(name = "last_name")
     @NotNull
     @Pattern(regexp = "[A-Z][a-zA-Z]*", message = "Use letters only please")
-    @Min(3)
+
     private String lastName;
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -46,7 +46,7 @@ public class User implements UserDetails {
     @Email(message = "Enter a valid email address.")
     private String email;
     @NotNull
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$")
+  //  @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$")
     private String password;
     @OneToMany(mappedBy = "room")
     private List<Reservation> reservations;
